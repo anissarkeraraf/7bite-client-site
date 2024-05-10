@@ -15,14 +15,31 @@ function Navbar() {
       }}>
       Services
     </NavLink></li>
-    <li>
+    <li className="P-4">
       <details>
-        <summary className="lg:text-gray-300">Dashboard</summary>
+        <summary className="lg:text-gray-300"><NavLink>Dash board</NavLink></summary>
         <ul className="">
-          <li className="mb-1"><NavLink className={'p-1'}>Add Service</NavLink></li>
-          <li className="mb-1"><NavLink className={'p-0'}>Manage Service</NavLink></li>
-          <li className="mb-1"><NavLink className={'p-0'}>Booked-Services</NavLink></li>
-          <li><NavLink className={'p-1'}> Service-To-Do</NavLink></li>
+          <li className="mb-1"><NavLink to='/addService'
+            className={'p-0'}
+            style={({ isActive }) => {
+              return isActive ? { color: "orange" } : {};
+            }}
+          >Add Service</NavLink></li>
+          <li className="mb-1"><NavLink to='/manage' className={'p-0'}
+            style={({ isActive }) => {
+              return isActive ? { color: "orange" } : {};
+            }}
+          >Manage Service</NavLink></li>
+          <li className="mb-1"><NavLink to='/booked' className={'p-0'}
+            style={({ isActive }) => {
+              return isActive ? { color: "orange" } : {};
+            }}
+          >Booked-Services</NavLink></li>
+          <li><NavLink to='/serviceToDo' className={'p-0'} 
+          style={({ isActive }) => {
+            return isActive ? { color: "orange" } : {};
+          }}
+          > Service-To-Do</NavLink></li>
         </ul>
       </details>
     </li>
@@ -39,7 +56,7 @@ function Navbar() {
             {navLink}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl"><img src="	https://wp1.yogsthemes.com/wp/sevenbite/wp-content/uploads/2021/08/logo.svg" alt="" /></a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -47,7 +64,7 @@ function Navbar() {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <NavLink to='/login'><button className="btn">Login</button></NavLink>
       </div>
     </div>
   );
@@ -55,39 +72,4 @@ function Navbar() {
 
 export default Navbar;
 
-{/* <nav className="bg-gray-800">
-<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  <div className="flex items-center justify-between h-16">
-    <div className="flex items-center">
-      <div className="flex-shrink-0">
-        <span className="text-white">Logo</span>
-      </div>
-      <div className="hidden md:block">
-        <div className="ml-10 flex items-baseline space-x-4">
-          <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-            Home
-          </a>
-          <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-            Services
-          </a>
-          <div className="relative">
-            <button onClick={toggleDropdown} className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium focus:outline-none focus:ring">
-              Dashboard
-            </button>
-            {isOpen && (
-              <div className="absolute origin-top-right right-0 mt-2 w-56 rounded-md shadow-lg bg-gray-800 ring-1 ring-white ring-opacity-5">
-                <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                  <a href="#" className="block px-4 py-2 text-sm text-white hover:bg-gray-700" role="menuitem">Add Service</a>
-                  <a href="#" className="block px-4 py-2 text-sm text-white hover:bg-gray-700" role="menuitem">Manage Service</a>
-                  <a href="#" className="block px-4 py-2 text-sm text-white hover:bg-gray-700" role="menuitem">Booked Services</a>
-                  <a href="#" className="block px-4 py-2 text-sm text-white hover:bg-gray-700" role="menuitem">Service To-Do</a>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</nav> */}
+
