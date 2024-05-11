@@ -8,7 +8,7 @@ const PopularService = ({ treatment }) => {
     const { imageURL, serviceName, price, description, serviceArea, providerEmail, providerImage, providerName } = treatment;
 
     return (
-        <div className="w-96 overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800 mt-10">
+        <div className=" overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800 mt-10 m-5 lg:m-0">
 
             <div className="relative">
                 <img className="w-[600px] h-[250px]" src={imageURL} alt="" />
