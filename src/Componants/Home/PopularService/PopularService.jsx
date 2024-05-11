@@ -2,19 +2,23 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 
-const PopularService = () => {
+const PopularService = ({ treatment }) => {
 
     const { user } = useContext(AuthContext)
+    const { imageURL, serviceName, price, description, serviceArea, providerEmail, providerImage, providerName } = treatment;
 
     return (
-        <div className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
-            <img src="" alt="" />
+        <div className="w-96 overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800 mt-10">
 
+            <div className="relative">
+                <img className="w-[600px] h-[250px]" src={imageURL} alt="" />
+                <p className="absolute bottom-1 text-white bg-orange-800 w-9 rounded">{price}</p>
+            </div>
             <div className="p-6">
                 <div>
-                    <span className="text-xs font-medium text-blue-600 uppercase dark:text-blue-400">Product</span>
-                    <a href="#" className="block mt-2 text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline" tabindex="0" role="link">I Built A Successful Blog In One Year</a>
-                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie parturient et sem ipsum volutpat vel. Natoque sem et aliquam mauris egestas quam volutpat viverra. In pretium nec senectus erat. Et malesuada lobortis.</p>
+                    <span className="text-xs font-medium text-blue-600 uppercase dark:text-blue-400">{serviceName}</span>
+                    <p className="text-xl font-medium">{description.slice(0, 50)}</p>
+
                 </div>
 
                 <div className="mt-4">
@@ -22,14 +26,16 @@ const PopularService = () => {
                         <div className="flex items-center">
                             {
                                 user && <>
-                                    <img src={user.photoURL} alt="" />
+                                    <img className="rounded-full w-10 h-10 mr-4" src={user.photoURL} alt="" />
                                     <p>{user.displayName}</p>
                                 </>
                             }
                         </div>
-                        <span className="mx-1 text-xs text-gray-600 dark:text-gray-300">21 SEP 2015</span>
                     </div>
                 </div>
+            </div>
+            <div className="mb-5">
+                <input className="bg-[#1F2937] text-white p-3 w-full rounded" type="submit" value="View Detail" />
             </div>
         </div>
     );

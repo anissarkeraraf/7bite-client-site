@@ -19,7 +19,7 @@ import bgimg4 from '../../../assets/img4.jpg'
 
 export default function Banner() {
   return (
-    <div className='lg:mx-16'>
+    <div className='lg:mx-10'>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

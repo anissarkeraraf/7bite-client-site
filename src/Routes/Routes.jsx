@@ -10,6 +10,7 @@ import Login from "../Componants/Login";
 import Register from "../Componants/Register";
 import PrivateRoute from "../Componants/Private/PrivateRoute";
 import NotFound from "../Componants/NotFound/NotFound";
+import AllServices from "../Componants/Pages/AllServices";
 
 const router = createBrowserRouter([
     {
@@ -22,7 +23,8 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch('http://localhost:5000/service')
             },
             {
                 path: '/services',
@@ -30,7 +32,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addService',
-                element: <AddService></AddService>
+                element: <PrivateRoute><AddService></AddService></PrivateRoute>
             },
             {
                 path: '/manage',
@@ -51,6 +53,10 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/allServices',
+                element: <PrivateRoute><AllServices></AllServices></PrivateRoute>
             }
         ]
     },
