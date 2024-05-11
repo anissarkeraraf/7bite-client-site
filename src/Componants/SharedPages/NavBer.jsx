@@ -16,41 +16,43 @@ function Navbar() {
     }}>
       Home
     </NavLink></li>
-    <li> <NavLink to='/services' className="lg:text-gray-300"
-      style={({ isActive }) => {
-        return isActive ? { color: "orange" } : {};
-      }}>
+    <li><NavLink to='/allServices' className="lg:text-gray-300" style={({ isActive }) => {
+      return isActive ? { color: "orange" } : {};
+    }}>
       Services
     </NavLink></li>
     {
-      user && <li className="P-4">
-        <details>
-          <summary className="lg:text-gray-300"><NavLink>Dash board</NavLink></summary>
-          <ul className="">
-            <li className="mb-1"><NavLink to='/addService'
-              className={'p-0'}
-              style={({ isActive }) => {
-                return isActive ? { color: "orange" } : {};
-              }}
-            >Add Service</NavLink></li>
-            <li className="mb-1"><NavLink to='/manage' className={'p-0'}
-              style={({ isActive }) => {
-                return isActive ? { color: "orange" } : {};
-              }}
-            >Manage Service</NavLink></li>
-            <li className="mb-1"><NavLink to='/booked' className={'p-0'}
-              style={({ isActive }) => {
-                return isActive ? { color: "orange" } : {};
-              }}
-            >Booked-Services</NavLink></li>
-            <li><NavLink to='/serviceToDo' className={'p-0'}
-              style={({ isActive }) => {
-                return isActive ? { color: "orange" } : {};
-              }}
-            > Service-To-Do</NavLink></li>
-          </ul>
-        </details>
-      </li>
+      user && <>
+
+        <li className="P-4">
+          <details>
+            <summary className="lg:text-gray-300"><NavLink>Dash board</NavLink></summary>
+            <ul className="">
+              <li className="mb-1"><NavLink to='/addService'
+                className={'p-0'}
+                style={({ isActive }) => {
+                  return isActive ? { color: "orange" } : {};
+                }}
+              >Add Service</NavLink></li>
+              <li className="mb-1"><NavLink to='/manage' className={'p-0'}
+                style={({ isActive }) => {
+                  return isActive ? { color: "orange" } : {};
+                }}
+              >Manage Service</NavLink></li>
+              <li className="mb-1"><NavLink to='/booked' className={'p-0'}
+                style={({ isActive }) => {
+                  return isActive ? { color: "orange" } : {};
+                }}
+              >Booked-Services</NavLink></li>
+              <li><NavLink to='/serviceToDo' className={'p-0'}
+                style={({ isActive }) => {
+                  return isActive ? { color: "orange" } : {};
+                }}
+              > Service-To-Do</NavLink></li>
+            </ul>
+          </details>
+        </li>
+      </>
     }
   </>
 

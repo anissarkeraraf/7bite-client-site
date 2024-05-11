@@ -15,10 +15,10 @@ const Home = () => {
             <Banner></Banner>
             <h2 className="text-3xl font-medium text-center mt-10">This is out popular treatment</h2>
             <p className="md:w-[550px] mx-auto
-             font-medium text-center">Experience a harmonious blend of therapeutic treatments, yoga sessions, and mindfulness practices in a serene and tranquil environment.</p>
+             font-medium text-center mb-10">Experience a harmonious blend of therapeutic treatments, yoga sessions, and mindfulness practices in a serene and tranquil environment.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:mx-10">
                 {
-                    treatments.map(treatment => <PopularService key={treatment._id} treatment={treatment}></PopularService>)
+                    treatments.slice(0, 6).map(treatment => <PopularService key={treatment._id} treatment={treatment}></PopularService>)
                 }
             </div>
             <div className="flex justify-center mt-8">

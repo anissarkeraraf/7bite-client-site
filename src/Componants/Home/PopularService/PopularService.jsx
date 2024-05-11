@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 
 const PopularService = ({ treatment }) => {
 
     const { user } = useContext(AuthContext)
-    const { imageURL, serviceName, price, description, serviceArea, providerEmail, providerImage, providerName } = treatment;
+    const { imageURL, _id, serviceName, price, description, serviceArea, providerEmail, providerImage, providerName } = treatment;
 
     return (
         <div className=" overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800 mt-10 m-5 lg:m-0">
@@ -35,7 +36,9 @@ const PopularService = ({ treatment }) => {
                 </div>
             </div>
             <div className="mb-5">
-                <input className="bg-[#1F2937] text-white p-3 w-full rounded" type="submit" value="View Detail" />
+                <Link to={`/details/${_id}`}>
+                    <input className="bg-[#1F2937] text-white p-3 w-full rounded" type="submit" value="View Detail" />
+                </Link>
             </div>
         </div>
     );
