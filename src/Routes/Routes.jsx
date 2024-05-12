@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../Componants/Root/Root";
 import Home from "../Componants/Home/Home";
 import AddService from "../Componants/Pages/AddService";
-import ManageService from "../Componants/Pages/ManageService";
+import ManageService from "../Componants/Pages/Manges/ManageService";
 import BookedService from "../Componants/Pages/BookedService";
 import ServiceToDo from "../Componants/Pages/ServiceToDo";
 import Login from "../Componants/Login";
@@ -11,6 +11,7 @@ import PrivateRoute from "../Componants/Private/PrivateRoute";
 import NotFound from "../Componants/NotFound/NotFound";
 import AllService from "../Componants/Pages/AllServices/AllService";
 import ViewDetails from "../Componants/Home/ViewDtails/ViewDetails";
+// import BookNow from "../Componants/BookNow/BookNow";
 
 const router = createBrowserRouter([
     {
@@ -59,6 +60,9 @@ const router = createBrowserRouter([
                 path: '/details/:id',
                 element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/service/${params.id}`)
+            },
+            {
+               
             }
         ]
     },
