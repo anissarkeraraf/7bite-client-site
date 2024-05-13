@@ -12,6 +12,7 @@ import NotFound from "../Componants/NotFound/NotFound";
 import AllService from "../Componants/Pages/AllServices/AllService";
 import ViewDetails from "../Componants/Home/ViewDtails/ViewDetails";
 import Update from "../Componants/Pages/Manges/Update";
+import Purchase from "../Componants/Purchase/Purchase";
 // import BookNow from "../Componants/BookNow/BookNow";
 
 const router = createBrowserRouter([
@@ -63,10 +64,14 @@ const router = createBrowserRouter([
                 loader: ({params}) => fetch(`http://localhost:5000/service/${params.id}`)
             },
             {
+                path: '/purchase/:id',
+                element: <Purchase></Purchase>
+            },
+            {
                path: '/update/:id',
                element: <PrivateRoute><Update></Update></PrivateRoute>,
                loader: ({params}) => fetch(`http://localhost:5000/service/${params.id}`)
-            }
+            },
         ]
     },
 ]);

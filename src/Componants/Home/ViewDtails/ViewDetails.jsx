@@ -12,14 +12,6 @@ const ViewDetails = () => {
     console.log(details)
     const { imageURL, serviceName, _id, price, description, serviceArea, providerEmail, providerImage, providerName } = details;
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const form = e.target.value;
-        const serviceTakingDate = form.serviceTakingDate.value;
-        const SpecialInstruction = form.SpecialInstruction.value
-        console.log(serviceTakingDate, SpecialInstruction)
-
-    };
 
     return (
         <div>
@@ -50,7 +42,9 @@ const ViewDetails = () => {
                     </div>
                     <div className="mb-5 ml-80">
 
-                        <input     className="bg-[#1F2937] text-white p-3 w-3/5 rounded" type="submit" value="Book Now" />
+                        <Link to={`/purchase/${_id}`}>
+                            <input className="bg-[#1F2937] text-white p-3 w-3/5 rounded" type="submit" value="Book Now" />
+                        </Link>
 
                     </div>
                 </div>
