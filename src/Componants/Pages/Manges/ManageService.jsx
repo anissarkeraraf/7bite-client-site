@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 
 const ManageService = () => {
@@ -53,6 +54,9 @@ const ManageService = () => {
 
     return (
         <div className="mt-16">
+            <Helmet>
+                <title>Manage Service | 7Bite</title>
+            </Helmet>
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead>

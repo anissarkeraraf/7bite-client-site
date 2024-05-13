@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 
 const AddService = () => {
@@ -45,6 +46,9 @@ const AddService = () => {
 
     return (
         <div className=" mt-20 bg-base-200 p-4 md:p-8 lg:p-10">
+            <Helmet>
+                <title>Add Services | 7Bite</title>
+            </Helmet>
             <h2 className="text-4xl font-medium text-center mb-10">Make your own services</h2>
             <form onSubmit={handleAddDoctorsServices}>
                 <div className="flex mb-8">

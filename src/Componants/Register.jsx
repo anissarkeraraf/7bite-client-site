@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from './Provider/AuthProvider';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import auth from '../firebase.config';
+import { Helmet } from 'react-helmet';
 
 const Register = () => {
 
@@ -70,6 +71,9 @@ const Register = () => {
 
     return (
         <div className='mt-32'>
+            <Helmet>
+                <title>Register | 7Bite</title>
+            </Helmet>
             <div className="hero min-h-screen">
 
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

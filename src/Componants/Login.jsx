@@ -51,6 +51,9 @@ const Login = () => {
 
     return (
         <div className="mt-16">
+            <Helmet>
+                <title>Login | 7Bite</title>
+            </Helmet>
             <div className="hero min-h-screen">
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <h2 className="text-4xl text-center">Please Login</h2>

@@ -1,11 +1,30 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { MdDarkMode, MdOutlineNightlight } from "react-icons/md";
 
 
 function Navbar() {
 
-  const { user, logOut } = useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext);
+  const [theme, setTheme] = useState("light");
+
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
+
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setTheme(savedTheme);
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    }
+  }, []);
 
 
 
@@ -86,7 +105,12 @@ function Navbar() {
           {navLink}
         </ul>
       </div>
-      <div className="navbar-end lg:mr-10">
+      <div className="navbar-end lg:mr-10 ">
+        {/* Tggle  them */}
+        <button className="text-gray-100 theme-toggle-btn mr-5" onClick={toggleTheme}>
+          {theme === "light" ? <MdDarkMode className="text-2xl"/> : <MdOutlineNightlight className="text-2xl"/>}
+          
+        </button>
         {
           user &&
           <p className="text-red-200 mr-2 flex justify-center items-center">{user.displayName}</p>
@@ -106,6 +130,7 @@ function Navbar() {
             <Link to='/login'><button className="bg-[#7AA93C] px-2 py-1 md:py-2 md:px-3 rounded">Login</button></Link>
         }
       </div>
+
     </div>
   );
 }

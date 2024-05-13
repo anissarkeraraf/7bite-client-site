@@ -2,6 +2,7 @@
 import { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 
 const ViewDetails = () => {
@@ -22,6 +23,9 @@ const ViewDetails = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Detail | 7Bite</title>
+            </Helmet>
             <div className="bg-[#A5A5A5] w-full bg-opacity-50 mb-10 mt-10">
                 <h2 className="text-4xl text-center py-5 font-bold">Details of tourist spot : <span className="text-[#C53701] opacity-70">{serviceName}</span></h2>
                 <div className="p-28 overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">

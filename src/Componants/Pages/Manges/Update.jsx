@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -45,6 +46,9 @@ const Update = () => {
 
         return (
             <div>
+                <Helmet>
+                    <title>Update Service | 7Bite</title>
+                </Helmet>
                 <h1 className="text-4xl font-medium text-center my-10">Update Your Own Service : {serviceName}</h1>
                 <form onSubmit={handleUpdate} className="p-5">
                     <div className="flex mb-8">

@@ -2,6 +2,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import Banner from "./Banner/Banner";
 import PopularService from "./PopularService/PopularService";
 import ExtraOne from "./ExtraSection/ExtraOne";
+import { Helmet } from "react-helmet";
 
 
 
@@ -12,6 +13,9 @@ const Home = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Home | 7Bite</title>
+            </Helmet>
             <Banner></Banner>
             <h2 className="text-3xl font-medium text-center mt-10">This is out popular treatment</h2>
             <p className="md:w-[550px] mx-auto

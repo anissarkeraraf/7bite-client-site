@@ -1,9 +1,13 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 const NotFound = () => {
     return (
         <div>
+            <Helmet>
+                <title>Not Found | 7Bite</title>
+            </Helmet>
             <section>
 
 
