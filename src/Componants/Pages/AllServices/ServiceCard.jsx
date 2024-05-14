@@ -17,7 +17,8 @@ const ServiceCard = ({ card }) => {
             </div>
             <div className="p-3">
                 <div>
-                    <span className="text-xs font-medium text-blue-600 uppercase dark:text-blue-400">{serviceName}</span>
+                    <h2
+                     className="text-xs font-medium text-blue-600 uppercase dark:text-blue-400">{serviceName}</h2>
                     <p className="text-xl font-medium">{description.slice(0, 50)}</p>
 
                 </div>

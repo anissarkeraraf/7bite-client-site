@@ -1,21 +1,58 @@
+import { useState, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import ServiceCard from "./ServiceCard";
 import { Helmet } from "react-helmet";
 
-
 const AllService = () => {
-    const cards = useLoaderData();
+    const allCards = useLoaderData();
+    const [searchQuery, setSearchQuery] = useState("");
+    const [filteredCards, setFilteredCards] = useState(allCards);
 
+    useEffect(() => {
+        setFilteredCards(allCards);
+    }, [allCards]);
+
+    const handleSearchChange = (e) => {
+        setSearchQuery(e.target.value);
+    };
+
+    const handleSearchClick = () => {
+        const query = searchQuery.toLowerCase();
+        setFilteredCards(
+            allCards.filter(card =>
+                card.title?.toLowerCase().includes(query) ||
+                card.description?.toLowerCase().includes(query) ||
+                card.providerName?.toLowerCase().includes(query)
+            )
+        );
+    };
 
     return (
         <div>
             <Helmet>
                 <title>Services | 7Bite</title>
             </Helmet>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 p-5 mt-16">
-                {
-                    cards.map(card => <ServiceCard key={card._id} card={card}></ServiceCard>)
-                }
+            <div className="p-5 mt-16">
+                <div className="mb-5 flex">
+                    <input
+                        type="text"
+                        placeholder="Search services..."
+                        value={searchQuery}
+                        onChange={handleSearchChange}
+                        className="w-full p-2 border border-gray-300 rounded"
+                    />
+                    <button
+                        onClick={handleSearchClick}
+                        className="ml-2 p-2 bg-blue-500 text-white rounded"
+                    >
+                        Search
+                    </button>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    {filteredCards.map(card => (
+                        <ServiceCard key={card._id} card={card} />
+                    ))}
+                </div>
             </div>
         </div>
     );
