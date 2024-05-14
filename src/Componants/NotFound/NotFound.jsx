@@ -25,7 +25,7 @@ const NotFound = () => {
                             ></span>
 
                             <span class="relative block px-8 py-3 bg-[#1A2238] border border-current">
-                                <Link to="/">Go Home</Link>
+                                <Link to="/">Go to Home</Link>
                             </span>
                         </a>
                     </button>
