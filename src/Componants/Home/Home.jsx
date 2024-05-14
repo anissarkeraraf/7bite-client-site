@@ -4,6 +4,7 @@ import PopularService from "./PopularService/PopularService";
 import ExtraOne from "./ExtraSection/ExtraOne";
 import { Helmet } from "react-helmet";
 import ExtraTwo from "./ExtraSection/ExtraTwo";
+import ExtraThree from "./ExtraSection/ExtraThree";
 
 
 
@@ -31,6 +32,7 @@ const Home = () => {
             </div>
             <ExtraOne></ExtraOne>
             <ExtraTwo></ExtraTwo>
+            <ExtraThree></ExtraThree>
         </div>
     );
 };
