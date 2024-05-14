@@ -1,5 +1,5 @@
-
-// import { Helmet } from "react-helmet-async";
+;
+import { Helmet } from "react-helmet";
 import { FaPhone } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { TfiEmail } from "react-icons/tfi";
@@ -8,7 +8,9 @@ import { TfiEmail } from "react-icons/tfi";
 const ContactUs = () => {
     return (
         <div className="mb-20">
-           
+            <Helmet>
+                <title>Contact | Home Idings</title>
+            </Helmet>
                 <div className="relative mt-10">
 
                     <img className="w-full lg:h-[250px]" src="https://i.ibb.co/fM90K0d/conpany-10-770x250.webp" alt="" />
