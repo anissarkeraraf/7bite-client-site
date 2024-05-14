@@ -1,15 +1,19 @@
 import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import { AuthContext } from "../Provider/AuthProvider";
+import { AuthContext } from "../../Provider/AuthProvider";
+
 const BookedService = () => {
     const { user } = useContext(AuthContext);
     const [bookes, setBookes] = useState([]);
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/purchase-provider/${user.email}`)
+            fetch(`http://localhost:5000/purchases/${user.email}`)
                 .then(res => res.json())
-                .then(data => setBookes(data))
+                .then(data => {
+                    console.log('Fetched data:', data); // Debug log
+                    setBookes(data);
+                })
                 .catch(error => console.error('Error fetching data:', error));
         }
     }, [user?.email]);
@@ -24,7 +28,8 @@ const BookedService = () => {
         })
             .then(res => res.json())
             .then(updatedItem => {
-                setBookes(prevBookes => prevBookes.map(item => 
+                console.log('Updated item:', updatedItem); // Debug log
+                setBookes(prevBookes => prevBookes.map(item =>
                     item._id === id ? { ...item, status: updatedItem.status } : item
                 ));
             })
@@ -64,7 +69,7 @@ const BookedService = () => {
                                     
                                     <td>
                                         <select
-                                            value={item.status}
+                                            value={item.status || 'Pending'}
                                             onChange={(e) => handleStatusChange(item._id, e.target.value)}
                                             className="dropdown-select"
                                         >

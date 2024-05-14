@@ -1,6 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Purchase = () => {
     const { user } = useContext(AuthContext);
@@ -23,6 +26,7 @@ const Purchase = () => {
 
     const handleAddDoctorsServices = e => {
         e.preventDefault();
+
         const form = e.target;
         const serviceId = form.serviceId.value;
         const imageURL = form.imageURL.value;
@@ -33,12 +37,37 @@ const Purchase = () => {
         const displayName = form.displayName.value;
         const providerName = form.providerName.value;
         const date = form.date.value;
-        const instruction = form.instruction.value;
-        const doctorServices = { imageURL, serviceId, email, displayName, date, instruction,  serviceName, price, providerEmail, providerName };
+        const address = form.address.value;
+        const doctorServices = { imageURL, serviceId, email, displayName, date, address, serviceName, price, providerEmail, providerName };
         console.log(doctorServices);
+
+        if (user.email === providerEmail) {
+            return toast('Action not permitted')
+        }
+
+        fetch('http://localhost:5000/purchase', {
+            method: 'POST',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(doctorServices)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Purchase added successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                    form.reset();
+                }
+            })
     }
 
-    
+
 
     console.log(product);
 
@@ -53,7 +82,7 @@ const Purchase = () => {
                                 <div className="label">
                                     <span className="label-text"> Service Id :</span>
                                 </div>
-                                <input type="text" name="serviceId" defaultValue={product._id} readOnly  className="input input-bordered w-full" />
+                                <input type="text" name="serviceId" defaultValue={product._id} readOnly className="input input-bordered w-full" />
                             </label>
                         </div>
                         <div className="md:w-1/2 ml-4">
@@ -61,7 +90,7 @@ const Purchase = () => {
                                 <div className="label">
                                     <span className="label-text">Service Name :</span>
                                 </div>
-                                <input type="text" name="serviceName" defaultValue={product.serviceName}  readOnly className="input input-bordered w-full" />
+                                <input type="text" name="serviceName" defaultValue={product.serviceName} readOnly className="input input-bordered w-full" />
                             </label>
                         </div>
                     </div>
@@ -116,7 +145,7 @@ const Purchase = () => {
                                     <div className="label">
                                         <span className="label-text">Current User Name :</span>
                                     </div>
-                                    <input type="text" name="displayName" defaultValue={user.displayName}  readOnly className="input input-bordered w-full" />
+                                    <input type="text" name="displayName" defaultValue={user.displayName} readOnly className="input input-bordered w-full" />
                                 </label>
                             </div>
                         </div>
@@ -133,15 +162,16 @@ const Purchase = () => {
                         <div className="md:w-1/2 ml-4">
                             <label className="form-control">
                                 <div className="label">
-                                    <span className="label-text">Special instruction :</span>
+                                    <span className="label-text">Address :</span>
                                 </div>
-                                <input type="text" name="instruction" placeholder="Special instruction" className="input input-bordered w-full" />
+                                <input type="text" name="address" placeholder="Address" className="input input-bordered w-full" />
                             </label>
                         </div>
                     </div>
                     <input type="submit" value="Purchase" className="p-3 text-white rounded-lg bg-[#7AA93C] w-full" />
                 </form>
             )}
+            <ToastContainer />
         </div>
     );
 };

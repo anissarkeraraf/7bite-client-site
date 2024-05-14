@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import auth from "../firebase.config";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);

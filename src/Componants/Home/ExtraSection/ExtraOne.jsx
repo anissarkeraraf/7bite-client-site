@@ -73,7 +73,7 @@ export default function App() {
                     <ExtraOneSlide image={padiatrician} header={'Padiatrician'} text={'Curabitur blandit posuere vestibulum. Ut tincidunt'}></ExtraOneSlide>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <ExtraOneSlide image={pulmonology} header={'Pulmonology'} text={'Aliquam tincidunt velit sit amet neque.'}></ExtraOneSlide>
+                    <ExtraOneSlide image={pulmonology} header={'Pulmonology'} text={'Pulmonology often involves managing patients who need life support.'}></ExtraOneSlide>
                 </SwiperSlide>
                 <SwiperSlide>
                     <ExtraOneSlide image={urology} header={'Urology'} text={'Aenean dignissim lectus dui, et ornare leo ullamcorper ac.'}></ExtraOneSlide>

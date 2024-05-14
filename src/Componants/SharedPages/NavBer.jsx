@@ -107,7 +107,7 @@ function Navbar() {
       </div>
       <div className="navbar-end lg:mr-10 ">
         {/* Tggle  them */}
-        <button className="text-gray-100 theme-toggle-btn mr-5" onClick={toggleTheme}>
+        <button className="text-gray-100 theme-toggle-btn md:mr-5" onClick={toggleTheme}>
           {theme === "light" ? <MdDarkMode className="text-2xl"/> : <MdOutlineNightlight className="text-2xl"/>}
           
         </button>

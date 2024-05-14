@@ -35,7 +35,7 @@ const AddService = () => {
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Tourist Spots added successfully',
+                        text: 'Doctor service added successfully',
                         icon: 'success',
                         confirmButtonText: 'Ok'
                     })

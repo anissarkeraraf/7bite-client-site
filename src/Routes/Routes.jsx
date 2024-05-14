@@ -3,7 +3,7 @@ import Root from "../Componants/Root/Root";
 import Home from "../Componants/Home/Home";
 import AddService from "../Componants/Pages/AddService";
 import ManageService from "../Componants/Pages/Manges/ManageService";
-import BookedService from "../Componants/Pages/BookedService";
+import BookedService from "../Componants/Pages/BookedService/BookedService";
 import ServiceToDo from "../Componants/Pages/ServiceToDo";
 import Login from "../Componants/Login";
 import Register from "../Componants/Register";
@@ -55,22 +55,22 @@ const router = createBrowserRouter([
             },
             {
                 path: '/allServices',
-                element:<AllService></AllService>,
+                element: <AllService></AllService>,
                 loader: () => fetch('http://localhost:5000/service')
             },
             {
                 path: '/details/:id',
                 element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/service/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`)
             },
             {
                 path: '/purchase/:id',
                 element: <Purchase></Purchase>
             },
             {
-               path: '/update/:id',
-               element: <PrivateRoute><Update></Update></PrivateRoute>,
-               loader: ({params}) => fetch(`http://localhost:5000/service/${params.id}`)
+                path: '/update/:id',
+                element: <PrivateRoute><Update></Update></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`)
             },
         ]
     },
