@@ -3,6 +3,7 @@ import Banner from "./Banner/Banner";
 import PopularService from "./PopularService/PopularService";
 import ExtraOne from "./ExtraSection/ExtraOne";
 import { Helmet } from "react-helmet";
+import ExtraTwo from "./ExtraSection/ExtraTwo";
 
 
 
@@ -29,6 +30,7 @@ const Home = () => {
                 <Link to="/allServices" className="bg-blue-500 text-white px-6 py-3 rounded-md text-lg hover:bg-blue-600">Show All</Link>
             </div>
             <ExtraOne></ExtraOne>
+            <ExtraTwo></ExtraTwo>
         </div>
     );
 };
