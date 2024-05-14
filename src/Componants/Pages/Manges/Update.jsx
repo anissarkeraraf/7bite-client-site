@@ -22,7 +22,9 @@ const Update = () => {
         const services = { serviceName, price, serviceArea, providerEmail, providerImage, providerName };
         console.log(services);
 
-        fetch(`http://localhost:5000/service/${_id}`, {
+        fetch(`http://localhost:5000
+
+/service/${_id}`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json"

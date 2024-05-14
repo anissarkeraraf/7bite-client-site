@@ -1,48 +1,61 @@
-import { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useLoaderData } from "react-router-dom";
+import ServiceCard from "./ServiceCard";
+import { Helmet } from "react-helmet";
 
+const AllService = () => {
+    const allCards = useLoaderData();
+    const [searchQuery, setSearchQuery] = useState("");
+    const [filteredCards, setFilteredCards] = useState(allCards);
 
-const ServiceCard = ({ card }) => {
+    const handleSearchChange = (e) => {
+        setSearchQuery(e.target.value);
+    };
 
-    const { user } = useContext(AuthContext);
+    const handleSearchClick = () => {
+        const query = searchQuery.toLowerCase();
+        // Filter cards based on the search query
+        const filtered = allCards.filter(card =>
+            card.title?.toLowerCase().includes(query)
+        );
+        // Update the state with filtered cards
+        setFilteredCards(filtered);
+    };
 
-    const { imageURL, _id, serviceName, price, description, serviceArea, providerEmail, providerImage, providerName } = card;
+    const handleServiceNameClick = (serviceName) => {
+        setSearchQuery(serviceName); // Update search query with service name
+        handleSearchClick(); // Trigger search
+    };
+
     return (
-        <div className=" overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800 mt-10">
-
-            <div className="relative">
-                <img className="w-[600px] h-[250px]" src={imageURL} alt="" />
-                <p className="absolute bottom-1 text-white bg-orange-800 w-10 text-center rounded">{price}</p>
-            </div>
-            <div className="p-3">
-                <div>
-                    <h2
-                     className="text-xs font-medium text-blue-600 uppercase dark:text-blue-400">{serviceName}</h2>
-                    <p className="text-xl font-medium">{description.slice(0, 50)}</p>
-
+        <div>
+            <Helmet>
+                <title>Services | 7Bite</title>
+            </Helmet>
+            <div className="p-5 mt-16">
+                <div className="mb-5 flex">
+                    <input
+                        type="text"
+                        placeholder="Search services..."
+                        value={searchQuery}
+                        onChange={handleSearchChange}
+                        className="w-full p-2 border border-gray-300 rounded"
+                    />
+                    <button
+                        onClick={handleSearchClick}
+                        className="ml-2 p-2 bg-blue-500 text-white rounded"
+                    >
+                        Search
+                    </button>
                 </div>
-
-                <div className="mt-4">
-                    <div className="flex items-center">
-                        <div className="flex items-center">
-                            {
-                                user && <>
-                                    <img className="rounded-full w-10 h-10 mr-4" src={user.photoURL} alt="" />
-                                    <p>{user.displayName}</p>
-                                </>
-                            }
-                        </div>
-                    </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    {filteredCards.map(card => (
+                        <ServiceCard key={card._id} card={card} />
+                    ))}
                 </div>
-            </div>
-            <div className="mb-5">
-                <Link to={`/details/${_id}`}>
-                    <input className="bg-[#1F2937] text-white p-3 w-full rounded" type="submit" value="View Detail" />
-                </Link>
             </div>
         </div>
     );
 };
 
-export default ServiceCard;
+export default AllService;

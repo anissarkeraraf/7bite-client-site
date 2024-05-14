@@ -13,7 +13,9 @@ const Purchase = () => {
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/service/${id}`)
+        fetch(`http://localhost:5000
+
+/service/${id}`)
             .then(res => res.json())
             .then(data => {
                 setProduct(data);

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import ServiceCard from "./ServiceCard";
 import { Helmet } from "react-helmet";
@@ -8,23 +8,18 @@ const AllService = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [filteredCards, setFilteredCards] = useState(allCards);
 
-    useEffect(() => {
-        setFilteredCards(allCards);
-    }, [allCards]);
-
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
     };
 
     const handleSearchClick = () => {
         const query = searchQuery.toLowerCase();
-        setFilteredCards(
-            allCards.filter(card =>
-                card.title?.toLowerCase().includes(query) ||
-                card.description?.toLowerCase().includes(query) ||
-                card.providerName?.toLowerCase().includes(query)
-            )
+        // Filter cards based on the search query
+        const filtered = allCards.filter(card =>
+            card.title?.toLowerCase().includes(query)
         );
+        // Update the state with filtered cards
+        setFilteredCards(filtered);
     };
 
     return (

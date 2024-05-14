@@ -7,7 +7,9 @@ const BookedService = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/purchase-provider/${user.email}`)
+            fetch(`http://localhost:5000
+
+/purchase-provider/${user.email}`)
                 .then(res => res.json())
                 .then(data => setBookes(data))
                 .catch(error => console.error('Error fetching data:', error));
@@ -15,7 +17,9 @@ const BookedService = () => {
     }, [user?.email]);
 
     const handleStatusChange = (id, status) => {
-        fetch(`http://localhost:5000/purchases/${id}`, {
+        fetch(`http://localhost:5000
+
+/purchases/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

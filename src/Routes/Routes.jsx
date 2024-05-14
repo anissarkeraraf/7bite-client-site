@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../Componants/Root/Root";
 import Home from "../Componants/Home/Home";
 import AddService from "../Componants/Pages/AddService";
-import ManageService from "../Componants/Pages/Manges/ManageService";
 import BookedService from "../Componants/Pages/BookedService/BookedService";
 import ServiceToDo from "../Componants/Pages/ServiceToDo";
 import Login from "../Componants/Login";
@@ -13,8 +12,8 @@ import AllService from "../Componants/Pages/AllServices/AllService";
 import ViewDetails from "../Componants/Home/ViewDtails/ViewDetails";
 import Update from "../Componants/Pages/Manges/Update";
 import Purchase from "../Componants/Purchase/Purchase";
-import ContactUs from "../Componants/Pages/Contact/ContactUs";
-// import BookNow from "../Componants/BookNow/BookNow";
+import ContactUs from "../Componants/Pages/Contuct/ContactUs";
+import ManageService from "../Componants/Pages/Manges/ManageService";
 
 const router = createBrowserRouter([
     {

@@ -8,7 +8,9 @@ const BookedService = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/purchases/${user.email}`)
+            fetch(`http://localhost:5000
+
+/purchases/${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log('Fetched data:', data); // Debug log
