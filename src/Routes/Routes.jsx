@@ -13,6 +13,7 @@ import AllService from "../Componants/Pages/AllServices/AllService";
 import ViewDetails from "../Componants/Home/ViewDtails/ViewDetails";
 import Update from "../Componants/Pages/Manges/Update";
 import Purchase from "../Componants/Purchase/Purchase";
+import ContactUs from "../Componants/Pages/Contact/ContactUs";
 // import BookNow from "../Componants/BookNow/BookNow";
 
 const router = createBrowserRouter([
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><Update></Update></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`)
             },
+            {
+                path: '/contact',
+                element: <ContactUs></ContactUs>
+            }
         ]
     },
 ]);

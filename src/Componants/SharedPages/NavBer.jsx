@@ -71,6 +71,11 @@ function Navbar() {
             </ul>
           </details>
         </li>
+        <li><NavLink to='/contact' className="lg:text-gray-300" style={({ isActive }) => {
+          return isActive ? { color: "orange" } : {};
+        }}>
+          Contact Us
+        </NavLink></li>
       </>
     }
   </>
@@ -108,8 +113,8 @@ function Navbar() {
       <div className="navbar-end lg:mr-10 ">
         {/* Tggle  them */}
         <button className="text-gray-100 theme-toggle-btn md:mr-5" onClick={toggleTheme}>
-          {theme === "light" ? <MdDarkMode className="text-2xl"/> : <MdOutlineNightlight className="text-2xl"/>}
-          
+          {theme === "light" ? <MdDarkMode className="text-2xl" /> : <MdOutlineNightlight className="text-2xl" />}
+
         </button>
         {
           user &&
