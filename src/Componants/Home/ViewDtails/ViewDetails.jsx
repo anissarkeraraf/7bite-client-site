@@ -1,17 +1,19 @@
-
 import { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Helmet } from "react-helmet";
 
-
 const ViewDetails = () => {
-
     const { user } = useContext(AuthContext);
     const details = useLoaderData();
-    console.log(details)
-    const { imageURL, serviceName, _id, price, description, serviceArea, providerEmail, providerImage, providerName } = details;
 
+    console.log("Details:", details);
+
+    if (!details) {
+        return <p>Loading...</p>;
+    }
+
+    const { imageURL, serviceName, _id, price, description, serviceArea, providerEmail, providerImage, providerName } = details;
 
     return (
         <div>
@@ -33,7 +35,6 @@ const ViewDetails = () => {
                         <div className="mt-4">
                             <div className="flex items-center">
                                 <div className="flex items-center">
-
                                     <img className="rounded-full w-10 h-10 mr-4" src={providerImage} alt="" />
                                     <p>{providerName}</p>
                                 </div>
@@ -41,16 +42,12 @@ const ViewDetails = () => {
                         </div>
                     </div>
                     <div className="mb-5 ml-80">
-
                         <Link to={`/purchase/${_id}`}>
                             <input className="bg-[#1F2937] text-white p-3 w-3/5 rounded" type="submit" value="Book Now" />
                         </Link>
-
                     </div>
                 </div>
             </div>
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-
         </div>
     );
 };

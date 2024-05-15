@@ -22,7 +22,7 @@ const AddService = () => {
         const doctorServices = { imageURL, serviceName, price, description, serviceArea, providerEmail, providerImage, providerName };
         console.log(doctorServices);
 
-        fetch('http://localhost:5000/service', {
+        fetch('https://assignment-eleven-server-taupe.vercel.app/service', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"

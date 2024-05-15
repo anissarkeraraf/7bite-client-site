@@ -23,8 +23,8 @@ const AllService = () => {
     };
 
     const handleServiceNameClick = (serviceName) => {
-        setSearchQuery(serviceName); // Update search query with service name
-        handleSearchClick(); // Trigger search
+        setSearchQuery(serviceName); 
+        handleSearchClick(); 
     };
 
     return (
@@ -42,7 +42,7 @@ const AllService = () => {
                         className="w-full p-2 border border-gray-300 rounded"
                     />
                     <button
-                        onClick={handleSearchClick}
+                        onClick={handleServiceNameClick}
                         className="ml-2 p-2 bg-blue-500 text-white rounded"
                     >
                         Search

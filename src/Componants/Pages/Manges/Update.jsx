@@ -22,9 +22,7 @@ const Update = () => {
         const services = { serviceName, price, serviceArea, providerEmail, providerImage, providerName };
         console.log(services);
 
-        fetch(`http://localhost:5000
-
-/service/${_id}`, {
+        fetch(`https://assignment-eleven-server-taupe.vercel.app/service/${_id}`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json"
@@ -101,7 +99,7 @@ const Update = () => {
                         <div className="md:w-1/2 ml-4">
                             <label className="form-control">
                                 <div className="label">
-                                    <span className="label-text">Price :</span>
+                                    <span className="label-text">Provider Name :</span>
                                 </div>
                                 <input type="text" name="providerName" defaultValue={providerName} readOnly className="input input-bordered w-full" />
                             </label>

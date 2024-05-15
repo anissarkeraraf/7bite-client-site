@@ -14,6 +14,8 @@ import Update from "../Componants/Pages/Manges/Update";
 import Purchase from "../Componants/Purchase/Purchase";
 import ContactUs from "../Componants/Pages/Contuct/ContactUs";
 import ManageService from "../Componants/Pages/Manges/ManageService";
+import { treatmentsLoader } from "../Componants/Home/loader";
+import { DetailsLoader } from "../Componants/Home/ViewDtails/DetailsLoader";
 
 const router = createBrowserRouter([
     {
@@ -25,9 +27,9 @@ const router = createBrowserRouter([
         element: <Root></Root>,
         children: [
             {
-                path: '/',
-                element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/service')
+                path: "/",
+                element: <Home />,
+                loader: () => fetch('https://assignment-eleven-server-taupe.vercel.app/service'),
             },
             {
                 path: '/addService',
@@ -56,12 +58,12 @@ const router = createBrowserRouter([
             {
                 path: '/allServices',
                 element: <AllService></AllService>,
-                loader: () => fetch('http://localhost:5000/service')
+                // loader: treatmentsLoader,
             },
             {
                 path: '/details/:id',
                 element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-eleven-server-taupe.vercel.app/service/${params.id}`)
             },
             {
                 path: '/purchase/:id',
@@ -70,7 +72,7 @@ const router = createBrowserRouter([
             {
                 path: '/update/:id',
                 element: <PrivateRoute><Update></Update></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-eleven-server-taupe.vercel.app/service/${params.id}`)
             },
             {
                 path: '/contact',

@@ -14,7 +14,7 @@ const ExtraTwo = () => {
             .catch(error => console.error('Error fetching data:', error));
     }, []);
 
-    console.log(extra);
+    // console.log(extra);
 
     return (
         <div>

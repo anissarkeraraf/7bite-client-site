@@ -7,7 +7,7 @@ const PopularService = ({ treatment }) => {
 
     const { user } = useContext(AuthContext)
     const { imageURL, _id, serviceName, price, description, serviceArea, providerEmail, providerImage, providerName } = treatment;
-    console.log(treatment)
+    // console.log(treatment)
 
     return (
         <div className=" overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800 mt-10">
