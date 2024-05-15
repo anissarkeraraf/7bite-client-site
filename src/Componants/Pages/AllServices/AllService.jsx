@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Helmet } from "react-helmet";
-import ServiceCard from "./ServiceCard";
+// import ServiceCard from "./ServiceCard";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
 

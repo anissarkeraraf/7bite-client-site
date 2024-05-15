@@ -18,7 +18,7 @@ const BookedService = () => {
         }
     }, [user?.email]);
 
-    const handleStatusChange = (id, status) => {
+    const handleStatusChange  = (id, status) => {
         fetch(`https://assignment-eleven-server-taupe.vercel.app/service/${id}`, {
             method: 'PATCH',
             headers: {
@@ -28,14 +28,15 @@ const BookedService = () => {
         })
             .then(res => res.json())
             .then(updatedItem => {
-                console.log('Updated item:', updatedItem); // Debug log
-                setBookes(prevBookes => prevBookes.map(item =>
-                    item._id === id ? { ...item, status: updatedItem.status } : item
-                ));
+                setBookes(prevBookedServices =>
+                    prevBookedServices.map(item =>
+                        item._id === id ? { ...item, status: updatedItem.status } : item
+                    )
+                );
             })
             .catch(error => console.error('Error updating status:', error));
-    };
 
+    };
     return (
         <div>
             <Helmet>
@@ -66,7 +67,7 @@ const BookedService = () => {
                                     <td>{item.date}</td>
                                     <td>{item.price}</td>
                                     <td>{item.providerName}</td>
-                                    
+
                                     <td>
                                         <select
                                             value={item.status || 'Pending'}

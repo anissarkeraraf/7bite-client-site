@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../Provider/AuthProvider";
-const BookedService = () => {
+const ServiceToDo = () => {
     const { user } = useContext(AuthContext);
     const [bookes, setBookes] = useState([]);
 
@@ -24,7 +24,7 @@ const BookedService = () => {
         })
             .then(res => res.json())
             .then(updatedItem => {
-                setBookes(prevBookes => prevBookes.map(item => 
+                setBookes(prevBookes => prevBookes.map(item =>
                     item._id === id ? { ...item, status: updatedItem.status } : item
                 ));
             })
@@ -61,7 +61,7 @@ const BookedService = () => {
                                     <td>{item.date}</td>
                                     <td>{item.price}</td>
                                     <td>{item.providerName}</td>
-                                    
+
                                     <td>
                                         <select
                                             value={item.status}
@@ -85,4 +85,4 @@ const BookedService = () => {
 
 
 
-export default BookedService;
+export default ServiceToDo;
