@@ -41,3 +41,7 @@ Welcome to 7Bite, Tell us your problem and consult the doctor according to your 
 
 
 - **Community Forums**: Engage with follow Homeenthusiasts in lively discussions with our doctors about your problem.
+
+
+
+## How to clone and run locally
