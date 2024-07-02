@@ -49,6 +49,6 @@ Welcome to 7Bite, Tell us your problem and consult the doctor according to your 
 
 **2.** Open the Command Prompt system in your windows and go to your project file.
 
-**3.** Paste the copied link by writing git clone and click enter
+**3.** Paste the copied link by writing git clone and click enter.
 
-**4.** Once Git is cloned, run it locally with npm run dev
+**4.** Once Git is cloned, run it locally with npm run dev.
