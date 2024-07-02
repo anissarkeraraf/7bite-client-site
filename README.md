@@ -45,3 +45,4 @@ Welcome to 7Bite, Tell us your problem and consult the doctor according to your 
 
 
 ## How to clone and run locally
+**1** go to GitHub's repository and copy the code link
